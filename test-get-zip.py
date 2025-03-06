@@ -16,13 +16,9 @@ import os
 # https://stream-unzip.docs.trade.gov.uk/async-interface/
 
 url = "https://api.insee.fr/melodi/file/DS_RP_LOGEMENT_PRINC/DS_RP_LOGEMENT_PRINC_CSV_FR"
-url = "https://lorem.jim.netnix.in/james/data.zip" # to not bother insee
-#url = "https://lorem.jim.netnix.in/dfg/data.zip" # to be quicker, it's a hort version of the v
 
 logementTableName = "bronze.logement"
 
-
-#note: I don't know how to have async using parameters -> stupid, use a damn object
 
 def v1():
 	print("fetching")
