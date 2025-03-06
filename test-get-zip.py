@@ -16,6 +16,7 @@ import os
 # https://stream-unzip.docs.trade.gov.uk/async-interface/
 
 url = "https://api.insee.fr/melodi/file/DS_RP_LOGEMENT_PRINC/DS_RP_LOGEMENT_PRINC_CSV_FR"
+url = "https://lorem.jim.netnix.in/james/data.zip" # to not bother insee
 
 logementTableName = "bronze.logement"
 
@@ -39,10 +40,6 @@ async def get_csv():
 			async for chunk in unzipped_chunks:
 				if (file_name.decode('utf8') == 'DS_RP_LOGEMENT_PRINC_data.csv'):
 					yield chunk
-
-async def build_sql(datas):
-	for item in datas.list:
-		print(item)
 
 async def createTable(cur, line):
 	cur.execute("SELECT * FROM information_schema.tables WHERE table_schema = %s AND table_name = %s", (logementTableName.split('.')[0], logementTableName.split('.')[1],))
